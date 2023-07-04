@@ -10,7 +10,7 @@ services:
     networks:
       - node-network
     volumes:
-      - ./node:/usr/src/app/
+      - /usr/src/app/
     tty: true
     depends_on:
       - db
