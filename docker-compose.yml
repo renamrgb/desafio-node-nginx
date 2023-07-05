@@ -6,11 +6,11 @@ services:
       context: node
     image: renamrgb/app-node
     container_name: app
-    entrypoint: dockerize -wait tcp://db:3306 --timeout 50s node index.js
+    entrypoint: sh -c "npm install && dockerize -wait tcp://db:3306 --timeout 50s node index.js"
     networks:
       - node-network
     volumes:
-      - /usr/src/app/
+      - ./node:/usr/src/app/
     tty: true
     depends_on:
       - db
